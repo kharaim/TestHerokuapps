@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-@Test(enabled = false)
+@Test(enabled = true)
 public class Login {
 
     ChromeDriver mDriver;
