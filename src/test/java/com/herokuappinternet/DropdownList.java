@@ -11,8 +11,9 @@ import org.testng.annotations.Test;
 import java.sql.Driver;
 import java.util.concurrent.TimeUnit;
 
-@Test(enabled = false)
-public class Checkbox {
+
+@Test(enabled = true)
+public class DropdownList {
 
     ChromeDriver mDriver;
 
@@ -22,25 +23,25 @@ public class Checkbox {
 
         mDriver = new ChromeDriver();
         mDriver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-        mDriver.get("https://the-internet.herokuapp.com/checkboxes");
+        mDriver.get("https://the-internet.herokuapp.com/dropdown");
 
     }
+
     @Test
-    public void checkbox() {
+    public void dropdown() {
 
-        Timeout.millis(2000);
-        mDriver.findElement(By.xpath("//*[@id=\"checkboxes\"]/input[1]")).click();
-        Assert.assertTrue(mDriver.findElement(By.xpath("//*[@id=\"checkboxes\"]/input[1]")).isSelected());
-
-        Timeout.millis(2000);
-        mDriver.findElement(By.xpath("//*[@id=\"checkboxes\"]/input[2]")).click();
-        Assert.assertTrue(mDriver.findElement(By.xpath("//*[@id=\"checkboxes\"]/input[1]")).isSelected());
+        Timeout.millis(1000);
+        mDriver.findElement(By.id("dropdown")).click();
+        Timeout.millis(5000);
+        mDriver.findElement(By.xpath("//*[@id=\"dropdown\"]/option[2]")).click();
+        Timeout.millis(5000);
+        mDriver.findElement(By.id("dropdown")).click();
+        Timeout.millis(5000);
+        mDriver.findElement(By.xpath("//*[@id=\"dropdown\"]/option[3]")).click();
     }
 
     @AfterMethod
     public void after() {
-        mDriver.quit();
+       mDriver.quit();
     }
 }
-
-

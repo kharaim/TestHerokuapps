@@ -4,6 +4,7 @@
         <classes>
             <class name="com.herokuappinternet.Login"/>
             <class name="com.herokuappinternet.Checkbox"/>
+            <class name="com.herokuappinternet.DropdownList"/>
         </classes>
     </test>
 </suite>
